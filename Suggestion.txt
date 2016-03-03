@@ -1,0 +1,24 @@
+/// Handle fluid
+switch (dyliquid_STEP(vspd * 8))
+{
+    case 0:
+        // Outside water
+        show_debug_message("Outside");
+        grav=clamp(grav+0.1,0,grav_org);
+        break;
+    case 1:
+        // Hit water
+        show_debug_message("Hit");
+        vspd *= 0.9;
+        grav=0;
+        break;
+    case 2:
+        // Inside water
+        show_debug_message("Inside");
+        grav=-0.01;
+        break;
+    case 3:
+        // Inside water and floating
+        show_debug_message("Inside and floating")
+        break;          
+}
